@@ -1,5 +1,5 @@
 # test-your-knowledge
-a test on your JavaScript knowlede
+a test on your JavaScript knowledge
 
 answereing 5 js questions 
 keeps highscores
