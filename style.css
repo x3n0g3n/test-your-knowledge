@@ -1,38 +1,126 @@
-body {
-    background-color: rgb(23, 24, 24)
-}
 
-.container {
-    display:flex;
+*{
+    background-color: rgb(1, 30, 1);
     justify-content: center;
-    align-items:center;
-    max-width: 100;
-    margin: 50px;
-    border-style: double;
-    border-width: 15px;
-    border-color: rgb(4, 78, 16);
-}
-
-h1{
-    font-size: 85px;
-    color: goldenrod;
     text-align: center;
-}
-
-.btn {
-    font-size: 45px;
-    padding: 10px;
-    margin-bottom: 40px;
-    margin-left: 20px;
-    width: 500px;
-    text-align: center;
+    font-family: 'Montserrat', sans-serif;
     color: goldenrod;
-    border-radius: 20px;
-    background-color: rgb(3, 37, 3);
-    justify-content: center;
+    margin: 10px;
+    padding: 2px;
+    font-size: 24px;
+
+}
+#startPage{
+    background-color: black;
+    border-radius: 35px;
+    font-family: 'Montserrat', sans-serif;
+    display:flex; 
+    flex-direction:column; 
     align-items: center;
+    justify-content:center;
+    margin:auto;
+    border: 1px;
+    border-color: aqua;
+    overflow: hidden;
+
+}
+.outer-container{
+    background-color: blue;
+    font-family: 'Montserrat', sans-serif;
+    display: none; 
+    flex-direction:column; 
+    align-items: center;
+    justify-content:center;
+    min-height:100vh;
+    margin:auto;
+    border: 1px;
+    overflow: hidden;
+}
+.top-bar{
+    background-color: black; 
+    border-radius: 25px;;
+}
+#countdown {
+    font-size: 36px;
+}
+h2,h3{
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    text-align: center;
+}  
+button{
+    background-color: rgb(1, 30, 1);
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    word-wrap: normal;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+}
+.quiz-container{
+    background-color:black;
+    display: none;
+    flex-direction: column;
+    margin: auto;
+}
+.choicesSec{
+    display: flex;
+    flex-direction: column;
+    border: 1px;
+    margin:  auto;
+}
+#endPage{
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+} 
+#endPage h2{
+    font-size: 2rem;
+    font-weight: 16pt;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+/* 
+----------High score page
+*/ 
+.highScores{
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
 }
 
-.btn:hover{
-    background-color: rgb(98, 13, 13);
-}
+#msg {
+    visibility: hidden;
+    margin-top: 20px;
+    font-weight: 700;
+    height: 1.2em;
+    font-size: 1.2em;
+  }
+  
+  #msg.success,
+  #msg.error {
+    visibility: visible;
+  }
+  
+  #msg.success {
+    color: goldenrod;
+  }
+  
+  #msg.error {
+    color: #5d0306;
+  }
+  @media screen and (min-width: 960px)   {
+    
+  }
+  @media screen and (min-width: 764px)   {
+      
+  }

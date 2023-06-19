@@ -1,22 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Java Knowledge Test</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    
-<div class="container">
-    <div id="main">
-        <h1> Test Your Knowledge! </h1>
-    <button class= btn id="start"> Challenge Your Mind </button>
-    <button class= btn id="score"> High Scores </button>
-    </div>
-</div>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,
+            initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="style.css">
+    </head>
+<title> JS Knowledge Test </title>
 
-</body>
-</html>
+    <body>
+        <div class="outer-container"></div>
+        <div class="top-bar">
+            <div id="main"><p id="countdown" >Timer: 00:00</p></div>
+        </div>
+        <div id="startPage">
+            <h1><strong>Test Your Knowledge!</strong></h1>
+            <p>click to begin your journey</p>
+            <button id="startButton">BEGIN</button>
+        </div>
 
+        <main>
+            <body>
+                <div class="quiz-container" id="quiz">
+                    <div id="home" class="flex-column flex-center"></div>
+                    <div class="quiz-header">
+                        <h2 id="question">quiz</h2>
+                        <section class="choicesSec" id="choices">
+                            <button id="a"></button>
+                            <button id="b"></button>
+                            <button id="c"></button>
+                            <button id="d"></button>
+                        </section>
+                    </main>
+                </section>
+                <div class="#endPage" id="endPage">
+                <h2>Congradulations! You reached the end!</h2>
+                <div id="card">Your score is: <span id= "user-score"></span> 
+                </div>
+                    <label for="">Enter Initials:</label>
+                    <input type="text" name="initials" id="initials">
+                    <button id="submit">Submit</button>
+                    <div id="msg"></div>
+                    <button id="restartButton">Try Again</button>
+                    <h2>High Scores</h2>
+                    <div id="highscores"></div>
+                        
+                        </div>
+                    </div>  
+                  </div>
+                  
+                <script src="script.js"></script>
+            </body>
+        </html>
