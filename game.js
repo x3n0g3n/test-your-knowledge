@@ -3,54 +3,56 @@ const choices = Array.from(document.querySelectorAll('.choice-text'));
 
 var currentQuestion = {};
 var answers = true;
+var questionCounter = 0;
 
 var questions = [
     {
         question: 'Inside what HTML element would you put JavaScript?',
-        choice1: '<Js>',
-        choice2: '<javaScript>',
-        choice3: '<script>',
-        choice4: '<coffee>',
-        answer: 3,
+        choiceA: '<Js>',
+        choiceB: '<javaScript>',
+        choiceC: '<script>',
+        choiceD: '<coffee>',
+        answer: 'C',
     },
     {
         question: 'How would you create a function in JavaScript?',
-        choice1: 'call function',
-        choice2: '#function',
-        choice3: 'function myFunction',
-        choice4: '[Function ()]',
-        answer: 3,
+        choiceA: 'call function',
+        choiceB: '#function',
+        choiceC: 'function myFunction()',
+        choiceD: '[Function ()]',
+        answer: 'C',
     },
     {
         question: 'How would you write comments for both one line and multi lines in JavaScript?',
-        choice1: '// & /*',
-        choice2: '<--&//',
-        choice3: '// works for both instances',
-        choice4: '!i&||',
-        answer: 1,
+        choiceA: '// & /*',
+        choiceB: '<--&//',
+        choiceC: '// works for both instances',
+        choiceD: '!i&||',
+        answer: 'A',
     },
     {
         question: 'Which operator is used to assign a value to a variable?',
-        choice1: 'var',
-        choice2: '*',
-        choice3: 'let',
-        choice4: '=',
-        answer: 4,
+        choiceA: 'var',
+        choiceB: '*',
+        choiceC: 'let',
+        choiceD: '=',
+        answer: 'D',
     },
     {
         question: 'Which of the following is the correct example of camel case?',
-        choice1: 'CamelCase',
-        choice2: 'camelCase',
-        choice3: 'CaMeLcAsE',
-        choice4: 'cAmElCaSe',
-        answer: 2,
+        choiceA: 'CamelCase',
+        choiceB: 'camelCase',
+        choiceC: 'CaMeLcAsE',
+        choiceD: 'cAmElCaSe',
+        answer: 'B',
     },
 ];
 
 const MAX_QUESTIONS = 5;
+let availableQuestions = []
 
 startGame = () => {
-    let questionCounter = 0;
+    questionCounter = 0;
     availableQuestions = [...questions];
     getNewQuestion();
 };
