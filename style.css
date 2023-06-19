@@ -20,9 +20,16 @@
     justify-content:center;
     margin:auto;
     border: 1px;
-    border-color: aqua;
+    border-color: red;
     overflow: hidden;
 
+}
+#startButton{
+    color:#5d0306;
+    font-weight: bolder;
+    font-size: 20px;
+    margin-top: 30px;
+    margin-bottom: 60px;
 }
 .outer-container{
     background-color: blue;
@@ -97,12 +104,12 @@ button{
     justify-content: center;
     margin: auto;
 }
-
+/* 
 #msg {
     visibility: hidden;
     margin-top: 20px;
     font-weight: 700;
-    height: 1.2em;
+    height: 10px ;
     font-size: 1.2em;
   }
   
@@ -117,7 +124,7 @@ button{
   
   #msg.error {
     color: #5d0306;
-  }
+  } */
   @media screen and (min-width: 960px)   {
     
   }

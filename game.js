@@ -1,20 +1,18 @@
-const question = document.querySelector('#questions'); //inqury//
-const choices = array.fromdocument.querySelectorAll('.choice-text');
+const question = document.querySelector('#question');
+const choices = Array.from(document.querySelectorAll('.choice-text'));
 
+var currentQuestion = {};
+var answers = true;
 
-var currentQuestion={};
-var answers=true;
-
-var questions=[
+var questions = [
     {
-        question: 'Inside what HTML element would you put in the JavaScript?',
+        question: 'Inside what HTML element would you put JavaScript?',
         choice1: '<Js>',
         choice2: '<javaScript>',
         choice3: '<script>',
         choice4: '<coffee>',
         answer: 3,
-
-    } ,
+    },
     {
         question: 'How would you create a function in JavaScript?',
         choice1: 'call function',
@@ -22,16 +20,14 @@ var questions=[
         choice3: 'function myFunction',
         choice4: '[Function ()]',
         answer: 3,
-
     },
     {
-        question: 'how would you write comments for both one line and multi lines in JavaScript?',
+        question: 'How would you write comments for both one line and multi lines in JavaScript?',
         choice1: '// & /*',
         choice2: '<--&//',
         choice3: '// works for both instances',
         choice4: '!i&||',
         answer: 1,
-
     },
     {
         question: 'Which operator is used to assign a value to a variable?',
@@ -40,42 +36,46 @@ var questions=[
         choice3: 'let',
         choice4: '=',
         answer: 4,
-
     },
     {
-        question: 'Which of the following is the correct example of camelcase?',
+        question: 'Which of the following is the correct example of camel case?',
         choice1: 'CamelCase',
         choice2: 'camelCase',
         choice3: 'CaMeLcAsE',
         choice4: 'cAmElCaSe',
         answer: 2,
-
-    }
+    },
 ];
 
 const MAX_QUESTIONS = 5;
 
-startGame=()=>{
-    questionCounter = 0
-    availableQuestions = [...questions]
-    getNewQuestion()
+startGame = () => {
+    let questionCounter = 0;
+    availableQuestions = [...questions];
+    getNewQuestion();
 };
 
-getNewQuestion=()=>{
-    if(availableQuestions.length ===0 || questionCounter> MAX_QUESTIONS){}
+const startButton = document.getElementById('startButton');
+startButton.addEventListener('click', startGame);
 
-const questionIndex =Math.floor(math.random() * availableQuestions.length)
-currentQuestion = availableQuestions[questionIndex]
-question.interText=currentQuestion.question
+getNewQuestion = () => {
+    if (availableQuestions.length === 0 || questionCounter >= MAX_QUESTIONS) {
+        return;
+    }
 
-choices.foreach(choice =>{
-    const number = choice.dataset['number']
-    choice.innterText = currentQuestion['choice'+ number]
-})
+    const questionIndex = Math.floor(Math.random() * availableQuestions.length);
+    currentQuestion = availableQuestions[questionIndex];
+    question.innerText = currentQuestion.question;
 
-availableQuestions.splice(questionIndex,1)
+    choices.forEach((choice) => {
+        const number = choice.dataset['number'];
+        choice.innerText = currentQuestion['choice' + number];
+    });
 
-answers=true
-}
+    availableQuestions.splice(questionIndex, 1);
+
+    answers = true;
+};
+
 
 
