@@ -1,6 +1,7 @@
 const question = document.querySelector('#question');
 const choices = Array.from(document.querySelectorAll('.choice-text'));
-
+const quizContainer = document.querySelector('.quiz-container');
+const correctAnswerEl = document.getElementById("answer");
 var currentQuestion = {};
 var answers = true;
 var questionCounter = 0;
@@ -52,6 +53,8 @@ const MAX_QUESTIONS = 5;
 let availableQuestions = []
 
 startGame = () => {
+    console.log('start game');
+    quizContainer.classList.remove('quiz-container');
     questionCounter = 0;
     availableQuestions = [...questions];
     getNewQuestion();
@@ -79,5 +82,22 @@ getNewQuestion = () => {
     answers = true;
 };
 
+function nextQuestion() {
+    if (this.innerHTML === quizData[currentQuiz].correct) {
+        console.log("Correct")
+    } else {
+        console.log("Wrong")
+        timeLeft -= 10;
+    }
+
+    currentQuiz++;
+    if (currentQuiz >= quizData.length) {
+        endPage();
+        console.log("End Page")
+    }
+    else {
+        showQuestion();
+    }
+}
 
 
