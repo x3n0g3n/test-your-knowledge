@@ -242,3 +242,124 @@ submitBtn.addEventListener("click", (event) => {
 //--------------------------------------------------------------//
 //--------------------------------------------------------------//
 //--------------------------------------------------------------//
+const quizData = [
+    {
+        id: 0,
+        question: "What is the opposite of up?",
+        options: ["down", "left", "right", "AABA", "none of the above"],
+        correct: "down"
+    },
+    {
+        id: 1,
+        question: "What is the air-speed velocity of an unladen swallow?",
+        options: ["about 15 miles per hour", "24 miles per hour", "A duck...", "not fast enough", "irrelevant, it's a dead parrot"],
+        correct: "24 miles per hour"
+    },
+    {
+        id: 2,
+        question: "What is considered to be Shaggy's greatest hit?",
+        options: ["It Wasn't Me", "Angel ft. Rayvon", "Boombastic", "That other song with that one guy", "none of the above"],
+        correct: "none of the above"
+    },
+    {
+        id: 3,
+        question: "If Rob Schneider and Pauly Shore entered a slurpee drinking competition, who would win?",
+        options: ["Rob Schneider", "Pauly Shore", "Both?", "None of the above", "Brendan Fraser"],
+        correct: "Pauly Shore"
+    }
+];
+
+const quiz = document.getElementById("quiz");
+const questionEl = document.getElementById("question");
+const optionsEl = document.getElementById("options");
+const nextButton = document.getElementById("nextButton");
+const startButton = document.getElementById("startButton");
+const endPageEl = document.getElementById("endPage");
+const restartButtonEl = document.getElementById("restartButton");
+const timerEl = document.getElementById("countdown");
+const userScoreSpan = document.getElementById("user-score");
+
+let currentQuiz = 0;
+let score = 0;
+let timeLeft = 60;
+let timerID;
+
+// Initialize the quiz
+function initializeQuiz() {
+    startButton.addEventListener("click", startQuiz);
+    restartButtonEl.addEventListener("click", restartQuiz);
+}
+
+// Start the quiz
+function startQuiz() {
+    startButton.style.display = "none";
+    timerEl.textContent = timeLeft;
+    timerID = setInterval(countdown, 1000);
+    showQuestion();
+    quiz.style.display = "block";
+}
+
+// Restart the quiz
+function restartQuiz() {
+    endPageEl.style.display = "none";
+    currentQuiz = 0;
+    score = 0;
+    timeLeft = 60;
+    timerEl.textContent = timeLeft;
+    userScoreSpan.textContent = "";
+    clearInterval(timerID);
+    startQuiz();
+}
+
+// Show the current question
+function showQuestion() {
+    const currentQuizData = quizData[currentQuiz];
+    questionEl.textContent = currentQuizData.question;
+    optionsEl.innerHTML = "";
+    currentQuizData.options.forEach((option, index) => {
+        const optionEl = document.createElement("button");
+        optionEl.classList.add("option");
+        optionEl.textContent = option;
+        optionEl.addEventListener("click", checkAnswer);
+        optionsEl.appendChild(optionEl);
+    });
+}
+
+// Check the selected answer
+function checkAnswer() {
+    const selectedOption = this.textContent;
+    const currentQuizData = quizData[currentQuiz];
+
+    if (selectedOption === currentQuizData.correct) {
+        score++;
+    }
+
+    currentQuiz++;
+
+    if (currentQuiz >= quizData.length) {
+        endQuiz();
+    } else {
+        showQuestion();
+    }
+}
+
+// End the quiz and display the score
+function endQuiz() {
+    clearInterval(timerID);
+    userScoreSpan.textContent = score;
+    quiz.style.display = "none";
+    endPageEl.style.display = "block";
+}
+
+// Timer countdown
+function countdown() {
+    timeLeft--;
+    timerEl.textContent = timeLeft;
+
+    if (timeLeft <= 0) {
+        endQuiz();
+    }
+}
+
+// Initialize the quiz on page load
+initializeQuiz();

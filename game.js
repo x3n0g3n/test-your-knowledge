@@ -6,7 +6,7 @@ var currentQuestion = {};
 var answers = true;
 var questionCounter = 0;
 
-var questions = [
+var quizData = [
     {
         question: 'Inside what HTML element would you put JavaScript?',
         choiceA: '<Js>',
@@ -55,8 +55,8 @@ let availableQuestions = []
 startGame = () => {
     console.log('start game');
     quizContainer.classList.remove('quiz-container');
-    questionCounter = 0;
-    availableQuestions = [...questions];
+    questionCounter = 5;
+    availableQuestions = [...quizData];
     getNewQuestion();
 };
 
@@ -100,4 +100,25 @@ function nextQuestion() {
     }
 }
 
+let currentQuiz = 0;
+let score = 0;
+let timeLeft = 60;
+//loadQuiz();
 
+function nextQuestion() {
+    if (this.innerHTML === questions[currentQuiz].correct) {
+        console.log("Correct")
+    } else {
+        console.log("Wrong")
+        timeLeft -= 10;
+    }
+
+    currentQuiz++;
+    if (currentQuiz >= questions.length) {
+        endPage();
+        console.log("End Page")
+    }
+    else {
+        showQuestion();
+    }
+}
